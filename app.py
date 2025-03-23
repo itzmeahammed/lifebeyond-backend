@@ -6,6 +6,7 @@ from Utils.jwt_authentication import CheckAuthorization
 from dotenv import load_dotenv
 from Routes.user_route import user_bp
 from Routes.feedback_route import feedback_bp
+from Routes.chat_route import chat_bp
 
 
 load_dotenv()
@@ -52,8 +53,7 @@ def health_check():
     
 app.register_blueprint(user_bp,url_prefix='/api/user')
 app.register_blueprint(feedback_bp,url_prefix='/api/feedback')
-
-
+app.register_blueprint(chat_bp, url_prefix='/chat')
 
 
 
