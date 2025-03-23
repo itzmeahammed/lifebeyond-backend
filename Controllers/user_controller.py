@@ -24,6 +24,20 @@ class UserController():
             logging.error(f"Error in getAllUser: {str(e)}")
             return CommonException.handleException(e)
         
+    def getAllUserByRole():
+        try:
+            role = request.args.get('role')
+            if not role:
+                return CommonException.ParamsRequiredException()
+            users = User.objects(role=role)
+            if users:
+                return jsonify([user.to_json() for user in users]), 200
+            else:
+                return jsonify([]), 200
+        except Exception as e:
+            logging.error(f"Error in getAllUserByRole: {str(e)}")
+            return CommonException.handleException(e)
+        
     def getOneUser():
         try:
             token = request.headers.get('Authorization')
