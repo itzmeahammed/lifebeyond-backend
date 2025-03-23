@@ -7,6 +7,8 @@ class User(Document):
     role=StringField(choices=['user','admin','lawyer','doctor'],required=True)
     auth_token = StringField()
     password=StringField(required=True)
+    bio = StringField()
+    avatar = StringField()
 
     def update(self, **kwargs):
         self.clean()
@@ -19,6 +21,8 @@ class User(Document):
             "number":self.number if self.number else None,
             "email":self.email if self.email else None,
             "role":self.role if self.role else None,
+            "bio":self.bio if self.bio else None,
+            "avatar":self.avatar if self.avatar else None,
 
         }
 
