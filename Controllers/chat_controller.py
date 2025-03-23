@@ -21,8 +21,11 @@ class ChatController:
             user = User.objects(auth_token=token).first()
             if not user:
                 return jsonify({"Error": "User not found"}), 404
-            chats = Chat.objects(user=user.id)
-            return jsonify([chat.to_json() for chat in chats]), 200
+            chats = Chat.objects(person1=user.id)
+            chats2 = Chat.objects(person2=user.id)
+            total_chats = [chat.to_json() for chat in chats]
+            [total_chats.append(chat.to_json()) for chat in chats2]
+            return jsonify(total_chats), 200
         except Exception as e:
             logging.error(f"Error in getChatsByUser: {str(e)}")
             return CommonException.handleException(e)
@@ -34,7 +37,9 @@ class ChatController:
             data = request.get_json()
             if not data:
                 return CommonException.DataRequiredException()
-            chat = Chat(user=user.id, **data)
+            person2= data.pop('person2')
+            message = Message(**data)
+            chat = Chat(person1=user.id,person2=person2,messages=[message])
             chat.save()
             return jsonify({"message": "Chat created successfully", "chat": chat.to_json()}), 201
         except Exception as e:

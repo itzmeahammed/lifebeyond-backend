@@ -53,7 +53,7 @@ def health_check():
     
 app.register_blueprint(user_bp,url_prefix='/api/user')
 app.register_blueprint(feedback_bp,url_prefix='/api/feedback')
-app.register_blueprint(chat_bp, url_prefix='/chat')
+app.register_blueprint(chat_bp, url_prefix='/api/chat')
 
 
 
