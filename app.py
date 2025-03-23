@@ -8,6 +8,7 @@ from Routes.user_route import user_bp
 from Routes.feedback_route import feedback_bp
 from Routes.chat_route import chat_bp
 from Routes.files_route import file_bp
+from Routes.voice_route import voice_assistant_bp
 
 
 load_dotenv()
@@ -56,6 +57,7 @@ app.register_blueprint(user_bp,url_prefix='/api/user')
 app.register_blueprint(feedback_bp,url_prefix='/api/feedback')
 app.register_blueprint(chat_bp, url_prefix='/api/chat')
 app.register_blueprint(file_bp, url_prefix='/api/file')
+app.register_blueprint(voice_assistant_bp, url_prefix='/api/voice')
 
 
 

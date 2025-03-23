@@ -3,8 +3,7 @@ mongoengine
 python-dotenv
 pyjwt
 flask-cors
-vosk
-pyttsx3
-wave
 speechrecognition
-google-generativeai
+openai
+gtts
+pydub
