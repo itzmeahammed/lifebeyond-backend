@@ -8,7 +8,8 @@ from Utils.CommonExceptions import CommonException
 from pydub import AudioSegment
 from pydub.playback import play
 
-
+AudioSegment.converter = "/usr/bin/ffmpeg" 
+AudioSegment.ffprobe = "/usr/bin/ffprobe"
 openai_client = openai.OpenAI(api_key=os.getenv('OPENAI_API_KEY'))
 
 class VoiceAssistantController:
@@ -32,7 +33,9 @@ class VoiceAssistantController:
             messages=[
                 {"role": "system", "content": "You are a helpful AI assistant."},
                 {"role": "user", "content": prompt}
-            ]
+            ],
+            max_tokens=40,
+            temperature=0.7
         )
         return response.choices[0].message.content.strip()
 
