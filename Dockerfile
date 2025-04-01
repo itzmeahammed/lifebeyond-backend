@@ -6,7 +6,7 @@ COPY requirements.txt .
 
 COPY .env .env
 
-RUN apt-get update && apt-get install -y ffmpeg
+# RUN apt-get update && apt-get install -y ffmpeg
 
 RUN pip install --upgrade pip
 
