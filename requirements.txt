@@ -7,3 +7,4 @@ speechrecognition
 openai
 gtts
 pydub
+imageio[ffmpeg]
