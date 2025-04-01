@@ -1,0 +1,27 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environment
+venv/
+.env
+.env.local
+
+# Package manager files
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Logs and cache
+*.log
+*.sqlite3
+*.db
+
+# Docker files
+Dockerfile
+.dockerignore
+
+# OS-specific files
+.DS_Store
+Thumbs.db
